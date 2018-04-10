@@ -22,3 +22,35 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+.main-nav {
+
+    background-color: #73AB84;
+}
+
+.main-nav a {
+
+    color: #FFF !important;
+}
+
+.menu-nav {
+
+    float: right;
+}
+
+.btn-primary {
+
+    border-color: #384C39;
+    background-color: #99D19C;
+}
+
+.btn-primary:hover {
+
+    background-color: #384C39;
+}
+
+h2 {
+
+    color: #8F8073;
+}
