@@ -20,10 +20,8 @@ namespace com.educacionit.ms.mvc.pet.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult GiveInAdoption()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }
