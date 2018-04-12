@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using COM.Educacionit.MS.MVC.Pet.Models;
+
+
 
 namespace com.educacionit.ms.mvc.pet.Controllers
 {
@@ -20,9 +23,17 @@ namespace com.educacionit.ms.mvc.pet.Controllers
             return View();
         }
 
-        public ActionResult GiveInAdoption()
+        public ActionResult GiveInAdoption ()
         {
-            return View();
+            return View ();
+        }
+
+        [HttpPost]
+        public ActionResult GiveInAdoption (Pet pet)
+        {
+            ViewBag.Message = String.Concat ("Thank you very much for register to ", pet.Contact.Name);
+
+            return View ();
         }
     }
 }

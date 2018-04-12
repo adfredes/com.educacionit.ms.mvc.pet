@@ -1,4 +1,4 @@
-﻿@model com.educacionit.ms.mvc.pet.Models.Pet
+﻿@model COM.Educacionit.MS.MVC.Pet.Models.Pet
 
 @{
     ViewBag.Title = "Registers a Pet";    
@@ -9,7 +9,7 @@
 
 <section class="content jumbotron">
 
-    @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+    @using (Html.BeginForm("GiveInAdoption", "Home", FormMethod.Post))
     {
 
         <div class="form-group">
@@ -28,17 +28,17 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(m => m.Contact.Name, "Contact Name")
+            @Html.LabelFor(m => m.Contact.Name, "Contact Full Name")
             @Html.TextBoxFor(m => m.Contact.Name, new { @class = "form-control", placeholder = "Contact Name" })
         </div>
 
         <div class="form-group">
             @Html.LabelFor(m => m.Contact.Email, "Contact Email")
-            @Html.TextBoxFor(m => m.Contact.Email, new { @class = "form-control", placeholder = "Contact Email" })
+            @Html.TextBoxFor(m => m.Contact.Email, new { @type = "email", @class = "form-control", placeholder = "Contact Email" })
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(m => m.Contact.Phone, "Contact Email")
+            @Html.LabelFor(m => m.Contact.Phone, "Contact Phone")
             @Html.TextBoxFor(m => m.Contact.Phone, new { @class = "form-control", placeholder = "Contact Email" })
         </div>
 

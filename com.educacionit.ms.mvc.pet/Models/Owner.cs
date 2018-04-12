@@ -5,7 +5,7 @@ using System.Web;
 
 
 
-namespace com.educacionit.ms.mvc.pet.Models
+namespace COM.Educacionit.MS.MVC.Pet.Models
 {
     public class Owner
     {
