@@ -1,0 +1,68 @@
+﻿@model List<COM.Educacionit.MS.MVC.Pet.Models.Pet>
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Specie</th>
+            <th scope="col">Age</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var p in Model)
+        {
+            <tr>
+                <td>@p.Name</td>
+                <td>@p.Type.Name</td>
+                <td>@p.Specie</td>
+                <td>@p.Age</td>
+                <td><button type="button" class="btn btn-primary" id="btnAdopt" data-id="@p.Id">Adopt</button></td>
+            </tr>
+        }
+    </tbody>
+           
+</table>
+
+<div class="modal fade" id="petAdoptModal" tabindex="-1" role="dialog" aria-labelledby="petAdoptModal-label">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="petAdoptModal-label">Modal title</h4>
+            </div>
+            <div class="modal-body" id="petAdoptModalBody">
+                @*@Html.Partial("AdoptPet", new COM.Educacionit.MS.MVC.Pet.Models.Adoption())*@                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Adopt</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function () {
+        let btnAdopts = document.querySelectorAll('#btnAdopt');
+
+
+
+        btnAdopts.forEach(function (btnAdopt) {
+            btnAdopt.addEventListener('click', btnAdopt_click);
+        });
+
+        function btnAdopt_click(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var id = e.target.dataset.id;
+            /*$("#petAdoptModal").modal();*/
+            $("#petAdoptModalBody").load("/Home/AdoptPet", "id=" + id, function (response, status, request) {
+                $("#petAdoptModal").modal();
+            });
+        }
+    }
+    )();
+</script>

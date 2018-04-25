@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Adopt a Pet";
+}
+<h2>@ViewBag.Title.</h2>
+<div class="form-inline">    
+    @Html.DropDownList("selectedType", new SelectList(ViewBag.PetTypes, "Id", "Name"), new { @class = "form-control" })
+    
+    <button type="button" class="btn btn-primary" id="btnView">VIEW</button>    
+</div>
+<section id="PetsInAdoption">
+    
+</section>
+    <script>
+        (function () {
+            var btnView = document.querySelector("#btnView");
+            var selectedType = document.querySelector("#selectedType");
+            btnView.addEventListener("click", function (e) {
+                e.preventDefault();
+                e.stopPropagation();                
+                $("#PetsInAdoption").load("/Home/PetsInAdoption", "id=" + selectedType.value, function (response, status, request) {                    
+                });
+            });
+        })();
+    </script>
+
+

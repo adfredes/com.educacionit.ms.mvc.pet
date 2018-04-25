@@ -146,8 +146,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Adopter.cs" />
+    <Compile Include="Models\Adoption.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Owner.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Pet.cs" />
+    <Compile Include="Models\PetType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +194,9 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\GiveInAdoption.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\PetsInAdoption.cshtml" />
+    <Content Include="Views\Home\Adopt.cshtml" />
+    <Content Include="Views\Home\AdoptPet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
