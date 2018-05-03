@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.educacionit.ms.pet.data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.educacionit.ms.pet.domain.model", "com.educacionit.ms.pet.domain.model\com.educacionit.ms.pet.domain.model.csproj", "{A3B8E1E0-04AE-46DE-AE58-C57B53D9D635}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.educacionit.ms.pet.services", "com.educacionit.ms.pet.services\com.educacionit.ms.pet.services.csproj", "{5A52E592-D8D5-492D-AAF7-6EF0B92C815E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A3B8E1E0-04AE-46DE-AE58-C57B53D9D635}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3B8E1E0-04AE-46DE-AE58-C57B53D9D635}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3B8E1E0-04AE-46DE-AE58-C57B53D9D635}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A52E592-D8D5-492D-AAF7-6EF0B92C815E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A52E592-D8D5-492D-AAF7-6EF0B92C815E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A52E592-D8D5-492D-AAF7-6EF0B92C815E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A52E592-D8D5-492D-AAF7-6EF0B92C815E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
