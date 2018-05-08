@@ -7,7 +7,7 @@ using System.Web;
 
 namespace COM.Educacionit.MS.MVC.Pet.Models
 {
-    public class Pet
+    public class PetModel
     {
         public int Id { get; set; }
 
@@ -15,9 +15,9 @@ namespace COM.Educacionit.MS.MVC.Pet.Models
 
         public string Description { get; set; }
 
-        public PetType Type { get; set; }
+        public PetTypeModel Type { get; set; }
 
-        public Owner Owner { get; set; }
+        public OwnerModel Owner { get; set; }
 
         public int Age { get; set; }
 

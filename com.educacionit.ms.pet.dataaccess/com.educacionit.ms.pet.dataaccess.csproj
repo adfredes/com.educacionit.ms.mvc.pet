@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>com.educacionit.ms.pet.dataaccess</RootNamespace>
     <AssemblyName>com.educacionit.ms.pet.dataaccess</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IAdopterRepository.cs" />
+    <Compile Include="Interfaces\IAdoptionRepository.cs" />
+    <Compile Include="Interfaces\IOwnerRepository.cs" />
+    <Compile Include="Interfaces\IPetRepository.cs" />
+    <Compile Include="Interfaces\IPetTypeRepository.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Mapping\AddressMap.cs" />
     <Compile Include="Mapping\AdopterMap.cs" />
     <Compile Include="Mapping\AdoptionMap.cs" />
@@ -64,6 +70,13 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PetsDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AdopterRepository.cs" />
+    <Compile Include="Repositories\AdoptionRepository.cs" />
+    <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="Repositories\OwnerRepository.cs" />
+    <Compile Include="Repositories\PetRepository.cs" />
+    <Compile Include="Repositories\PetTypeRepository.cs" />
+    <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

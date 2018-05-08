@@ -5,7 +5,7 @@ using System.Web;
 
 namespace COM.Educacionit.MS.MVC.Pet.Models
 {
-    public class Person
+    public class PersonModel
     {
         public int Id { get; set; }
 
@@ -17,7 +17,7 @@ namespace COM.Educacionit.MS.MVC.Pet.Models
 
         public string Phone { get; set; }
 
-        public Address Address { get; set; }
+        public AddressModel Address { get; set; }
 
         public byte[] Photo { get; set; }
     }

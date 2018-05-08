@@ -1,24 +1,24 @@
 ﻿using com.educacionit.ms.pet.dataaccess;
-using com.educacionit.ms.pet.services.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
+using com.educacionit.ms.pet.dataaccess.Interfaces;
 
-namespace com.educacionit.ms.pet.services.Repository
+namespace com.educacionit.ms.pet.dataaccess.Repositories
 {
-    public class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : class
+    public abstract class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         private readonly PetsDbContext _dbcontext;
-        
+
         private DbSet<TEntity> Entity { get; set; }
 
-        public GenericRepository()
+        public GenericRepository(PetsDbContext dbContext)
         {
-            this._dbcontext = new PetsDbContext();
+            this._dbcontext = dbContext;
             this.Entity = this._dbcontext.Set<TEntity>();
         }
 
@@ -42,7 +42,7 @@ namespace com.educacionit.ms.pet.services.Repository
 
         public IQueryable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return Entity.Where(predicate);
         }
 
         public IQueryable<TEntity> GetAll()

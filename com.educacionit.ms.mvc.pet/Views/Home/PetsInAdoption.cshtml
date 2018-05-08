@@ -1,4 +1,4 @@
-﻿@model List<COM.Educacionit.MS.MVC.Pet.Models.Pet>
+﻿@model List<COM.Educacionit.MS.MVC.Pet.Models.PetModel>
 
 
 <table class="table">
@@ -16,7 +16,8 @@
         {
             <tr>
                 <td>@p.Name</td>
-                <td>@p.Type.Name</td>
+                <td></td>
+                @*<td>@p.Type.Name</td>*@
                 <td>@p.Specie</td>
                 <td>@p.Age</td>
                 <td><button type="button" class="btn btn-primary" id="btnAdopt" data-id="@p.Id">Adopt</button></td>

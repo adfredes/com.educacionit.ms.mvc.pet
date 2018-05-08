@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
+using com.educacionit.ms.pet.services.ImplementServices;
+using com.educacionit.ms.pet.services.Interfaces;
 using COM.Educacionit.MS.MVC.Pet.Models;
 
 
@@ -10,7 +13,7 @@ using COM.Educacionit.MS.MVC.Pet.Models;
 namespace com.educacionit.ms.mvc.pet.Controllers
 {
     public class HomeController : Controller
-    {
+    {        
 
         public ActionResult Index(int? id = null)
         {
@@ -30,7 +33,7 @@ namespace com.educacionit.ms.mvc.pet.Controllers
         }
 
         [HttpPost]
-        public ActionResult GiveInAdoption (Pet pet)
+        public ActionResult GiveInAdoption (PetModel pet)
         {
             ViewBag.Message = String.Concat ("Thank you very much for register to ", pet.Owner.Name);
 
@@ -40,47 +43,49 @@ namespace com.educacionit.ms.mvc.pet.Controllers
         [HttpGet]
         public ActionResult Adopt()
         {
-            ViewBag.PetTypes = getPetTypes();
+            IPetService petService = new PetServiceImp();
+            ViewBag.PetTypes = Mapper.Map<ICollection<PetTypeModel>>(petService.GetPetTypes());
             return View();
         }
 
         [HttpGet]
         public ActionResult PetsInAdoption(int?  id = null)
         {
-            List<Pet> pets;
+            List<PetModel> pets;
+            IPetService petService = new PetServiceImp();
 
-            if (id.HasValue) {                 
-                pets = getPets();
-                var filterPets = pets.Where(x => x.Type.Id == id).ToList();
-                return PartialView(filterPets);
+            if (id.HasValue) {
+                pets = Mapper.Map<List<PetModel>>(petService.GetPetsForAdoption(id.Value));                                                   
             }
             else
             {
-                pets = new List<Pet>();
-                return PartialView(pets);
+                pets = Mapper.Map<List<PetModel>>(petService.GetPetsForAdoption());                
             }
+
+            return PartialView(pets);
         }
 
         [HttpGet]
         public ActionResult AdoptPet (int id)
         {
-            Adoption adoption = new Adoption();
-            var pet = getPets().FirstOrDefault(x => x.Id == id);
+            AdoptionModel adoption = new AdoptionModel();
+            IPetService petService = new PetServiceImp();
+            var pet = Mapper.Map<PetModel>(petService.Find(id));                
             adoption.Pet = pet;
             adoption.Date = DateTime.Now;
             return PartialView(adoption);
         }
 
 
-        private List<Pet> getPets()
+        private List<PetModel> getPets()
         {
-            return new List<Pet>{new Pet() {Id = 1, Name = "Max", Age = 4, Specie = "Pug", Type = new PetType{ Name = "Perro" , Id = 1} },
-                new Pet() {Id = 2, Name = "Olivia", Age = 10, Specie = "Siames", Type = new PetType{ Name = "Gato", Id = 2 } }};
+            return new List<PetModel>{new PetModel() {Id = 1, Name = "Max", Age = 4, Specie = "Pug", Type = new PetTypeModel{ Name = "Perro" , Id = 1} },
+                new PetModel() {Id = 2, Name = "Olivia", Age = 10, Specie = "Siames", Type = new PetTypeModel{ Name = "Gato", Id = 2 } }};
         }
 
-        private List<PetType> getPetTypes()
+        private List<PetTypeModel> getPetTypes()
         {
-            return new List<PetType> { new PetType { Name = "Perro", Id = 1 }, new PetType { Name = "Gato", Id = 2 } };                
+            return new List<PetTypeModel> { new PetTypeModel { Name = "Perro", Id = 1 }, new PetTypeModel { Name = "Gato", Id = 2 } };                
         }
     }
 }

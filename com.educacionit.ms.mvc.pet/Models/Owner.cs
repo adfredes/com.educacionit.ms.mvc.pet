@@ -7,8 +7,8 @@ using System.Web;
 
 namespace COM.Educacionit.MS.MVC.Pet.Models
 {
-    public class Owner : Person
+    public class OwnerModel : PersonModel
     {
-        public List<Pet> Pets { get; set; }
+        public List<PetModel> Pets { get; set; }
     }
 }
