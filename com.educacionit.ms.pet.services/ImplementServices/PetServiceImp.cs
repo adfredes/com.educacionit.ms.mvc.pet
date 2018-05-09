@@ -1,5 +1,6 @@
 ﻿using com.educacionit.ms.pet.dataaccess;
-using com.educacionit.ms.pet.domain.model;
+using com.educacionit.ms.pet.dataaccess.Interfaces;
+using com.educacionit.ms.pet.domain.entities;
 using com.educacionit.ms.pet.services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,11 @@ namespace com.educacionit.ms.pet.services.ImplementServices
 {
     public class PetServiceImp : IPetService
     {
-        private UnitOfWork unitOfWork;
+        private IUnitOfWork unitOfWork;
 
-        public PetServiceImp()
+        public PetServiceImp(IUnitOfWork unitOfWork)
         {
-            unitOfWork = new UnitOfWork();
+            this.unitOfWork = unitOfWork;
         }        
 
         public void Add(Pet entity)
@@ -26,12 +27,12 @@ namespace com.educacionit.ms.pet.services.ImplementServices
 
         public void Delete(Pet entity)
         {
-            throw new NotImplementedException();
+            unitOfWork.RepoPet.Delete(entity);
         }
 
         public void Edit(Pet entity)
         {
-            throw new NotImplementedException();
+            unitOfWork.RepoPet.Edit(entity);
         }
 
         public Pet Find(int id)
@@ -41,26 +42,25 @@ namespace com.educacionit.ms.pet.services.ImplementServices
 
         public IQueryable<Pet> FindBy(Expression<Func<Pet, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return unitOfWork.RepoPet.FindBy(predicate);
         }
 
         public IQueryable<Pet> GetAll()
         {
-            throw new NotImplementedException();
+            return unitOfWork.RepoPet.GetAll();
         }
 
         public ICollection<Pet> GetPetsForAdoption()
         {
-            return unitOfWork.RepoPet.FindBy(x => x.Adopted == false)                
-                .OrderBy(x => x.Name)
+            return FindBy(x => x.Adopted == false)                
+                .OrderBy(x => x.Name)                
                 .ToList();
         }
 
         public ICollection<Pet> GetPetsForAdoption(int idType)
-        {
-            
-            return unitOfWork.RepoPet.FindBy(x => x.Adopted == false && x.IdType == idType)
-                .OrderBy(x => x.Name)
+        {            
+            return FindBy(x => x.Adopted == false && x.IdType == idType)                                
+                .OrderBy(x => x.Name)                
                 .ToList();
         }
 

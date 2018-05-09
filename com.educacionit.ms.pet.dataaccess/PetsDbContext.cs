@@ -1,7 +1,7 @@
 ﻿namespace com.educacionit.ms.pet.dataaccess
 {
     using com.educacionit.ms.pet.dataaccess.Mapping;
-    using com.educacionit.ms.pet.domain.model;
+    using com.educacionit.ms.pet.domain.entities;
     using System;
     using System.Data.Entity;
     using System.Linq;

@@ -1,7 +1,8 @@
 ﻿using com.educacionit.ms.pet.dataaccess.Interfaces;
-using com.educacionit.ms.pet.domain.model;
+using com.educacionit.ms.pet.domain.entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,16 +11,16 @@ namespace com.educacionit.ms.pet.dataaccess.Repositories
 {
     public class PetRepository : GenericRepository<Pet>, IPetRepository
     {
-        public PetRepository(PetsDbContext dbContext) : base(dbContext) { }
+        public PetRepository(DbContext dbContext) : base(dbContext) { }
 
-        public ICollection<Pet> GetPetsForAdoption()
+        public IQueryable<Pet> GetPetsForAdoption()
         {            
-            return base.FindBy(x => x.Adopted == false).ToList();
+            return base.FindBy(x => x.Adopted == false);
         }
 
-        public ICollection<Pet> GetPetsForAdoption(int idType)
+        public IQueryable<Pet> GetPetsForAdoption(int idType)
         {            
-            return base.FindBy(x => x.Adopted == false && x.IdType == idType).ToList();
+            return base.FindBy(x => x.Adopted == false && x.IdType == idType);
         }
     }
 }

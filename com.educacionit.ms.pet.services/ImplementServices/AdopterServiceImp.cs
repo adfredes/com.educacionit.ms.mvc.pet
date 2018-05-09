@@ -1,5 +1,6 @@
 ﻿using com.educacionit.ms.pet.dataaccess;
-using com.educacionit.ms.pet.domain.model;
+using com.educacionit.ms.pet.dataaccess.Interfaces;
+using com.educacionit.ms.pet.domain.entities;
 using com.educacionit.ms.pet.services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -12,14 +13,11 @@ namespace com.educacionit.ms.pet.services.ImplementServices
 {
     public class AdopterServiceImp : IAdopterService
     {
-        public AdopterServiceImp()
+        private IUnitOfWork unitOfWork;
+
+        public AdopterServiceImp(IUnitOfWork unitOfWork)
         {
-
-        }
-
-        public AdopterServiceImp(PetsDbContext context)
-        {
-
+            this.unitOfWork = unitOfWork;
         }
 
         public void Add(Adopter entity)

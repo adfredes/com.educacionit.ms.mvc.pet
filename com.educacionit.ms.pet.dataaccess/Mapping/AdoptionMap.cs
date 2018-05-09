@@ -1,4 +1,4 @@
-﻿using com.educacionit.ms.pet.domain.model;
+﻿using com.educacionit.ms.pet.domain.entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
@@ -23,6 +23,8 @@ namespace com.educacionit.ms.pet.dataaccess.Mapping
                 .WithMany(g => g.Adoptions)
                 .HasForeignKey(f => f.IdPet)
                 .WillCascadeOnDelete(false);
+            
+
         }
     }
 }

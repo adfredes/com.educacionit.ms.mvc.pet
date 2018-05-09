@@ -15,9 +15,8 @@
         @foreach(var p in Model)
         {
             <tr>
-                <td>@p.Name</td>
-                <td></td>
-                @*<td>@p.Type.Name</td>*@
+                <td>@p.Name</td>                
+                <td>@p.Type.Name</td>
                 <td>@p.Specie</td>
                 <td>@p.Age</td>
                 <td><button type="button" class="btn btn-primary" id="btnAdopt" data-id="@p.Id">Adopt</button></td>

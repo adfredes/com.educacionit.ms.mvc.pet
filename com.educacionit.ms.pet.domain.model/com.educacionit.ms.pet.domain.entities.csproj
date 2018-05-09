@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9867E58D-E5A9-4BAC-A545-1F6FBF128929}</ProjectGuid>
+    <ProjectGuid>{A3B8E1E0-04AE-46DE-AE58-C57B53D9D635}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>com.educacionit.ms.pet.dataaccess</RootNamespace>
-    <AssemblyName>com.educacionit.ms.pet.dataaccess</AssemblyName>
+    <RootNamespace>com.educacionit.ms.pet.domain.entities</RootNamespace>
+    <AssemblyName>com.educacionit.ms.pet.domain.entities</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,8 +39,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,52 +47,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IAdopterRepository.cs" />
-    <Compile Include="Interfaces\IAdoptionRepository.cs" />
-    <Compile Include="Interfaces\IOwnerRepository.cs" />
-    <Compile Include="Interfaces\IPetRepository.cs" />
-    <Compile Include="Interfaces\IPetTypeRepository.cs" />
-    <Compile Include="Interfaces\IRepository.cs" />
-    <Compile Include="Interfaces\IUnitOfWork.cs" />
-    <Compile Include="Mapping\AddressMap.cs" />
-    <Compile Include="Mapping\AdopterMap.cs" />
-    <Compile Include="Mapping\AdoptionMap.cs" />
-    <Compile Include="Mapping\CityMap.cs" />
-    <Compile Include="Mapping\OwnerMap.cs" />
-    <Compile Include="Mapping\PersonMap.cs" />
-    <Compile Include="Mapping\PetMap.cs" />
-    <Compile Include="Migrations\201805031234596_init.cs" />
-    <Compile Include="Migrations\201805031234596_init.Designer.cs">
-      <DependentUpon>201805031234596_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="PetsDbContext.cs" />
+    <Compile Include="Address.cs" />
+    <Compile Include="Adopter.cs" />
+    <Compile Include="Adoption.cs" />
+    <Compile Include="City.cs" />
+    <Compile Include="Country.cs" />
+    <Compile Include="Owner.cs" />
+    <Compile Include="Person.cs" />
+    <Compile Include="Pet.cs" />
+    <Compile Include="PetType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\AdopterRepository.cs" />
-    <Compile Include="Repositories\AdoptionRepository.cs" />
-    <Compile Include="Repositories\GenericRepository.cs" />
-    <Compile Include="Repositories\OwnerRepository.cs" />
-    <Compile Include="Repositories\PetRepository.cs" />
-    <Compile Include="Repositories\PetTypeRepository.cs" />
-    <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\com.educacionit.ms.pet.domain.model\com.educacionit.ms.pet.domain.entities.csproj">
-      <Project>{a3b8e1e0-04ae-46de-ae58-c57b53d9d635}</Project>
-      <Name>com.educacionit.ms.pet.domain.entities</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805031234596_init.resx">
-      <DependentUpon>201805031234596_init.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

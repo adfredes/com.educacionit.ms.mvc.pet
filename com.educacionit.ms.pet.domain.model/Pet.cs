@@ -5,7 +5,7 @@ using System.Web;
 
 
 
-namespace com.educacionit.ms.pet.domain.model
+namespace com.educacionit.ms.pet.domain.entities
 {
     public class Pet
     {
@@ -16,10 +16,10 @@ namespace com.educacionit.ms.pet.domain.model
         public string Description { get; set; }
 
         public int IdType { get; set; }
-        public PetType Type { get; set; }
+        public virtual PetType Type { get; set; }
 
         public int IdOwner { get; set; }
-        public Owner Owner { get; set; }
+        public virtual Owner Owner { get; set; }
 
         public int Age { get; set; }
 

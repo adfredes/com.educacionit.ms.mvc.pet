@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.educacionit.ms.mvc.pet"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.educacionit.ms.pet.dataaccess", "com.educacionit.ms.pet.dataaccess\com.educacionit.ms.pet.dataaccess.csproj", "{9867E58D-E5A9-4BAC-A545-1F6FBF128929}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.educacionit.ms.pet.domain.model", "com.educacionit.ms.pet.domain.model\com.educacionit.ms.pet.domain.model.csproj", "{A3B8E1E0-04AE-46DE-AE58-C57B53D9D635}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.educacionit.ms.pet.domain.entities", "com.educacionit.ms.pet.domain.model\com.educacionit.ms.pet.domain.entities.csproj", "{A3B8E1E0-04AE-46DE-AE58-C57B53D9D635}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.educacionit.ms.pet.services", "com.educacionit.ms.pet.services\com.educacionit.ms.pet.services.csproj", "{5A52E592-D8D5-492D-AAF7-6EF0B92C815E}"
 EndProject

@@ -1,18 +1,19 @@
 ﻿using com.educacionit.ms.pet.dataaccess.Interfaces;
 using com.educacionit.ms.pet.dataaccess.Repositories;
-using com.educacionit.ms.pet.domain.model;
+using com.educacionit.ms.pet.domain.entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace com.educacionit.ms.pet.dataaccess
 {
-    public class UnitOfWork : IDisposable
+    public class UnitOfWork : IDisposable, IUnitOfWork
     {
         private bool disposed;
-        private readonly PetsDbContext _dbContext;
+        private readonly DbContext _dbContext;
         private IAdopterRepository _repoAdopter;
         private IAdoptionRepository _repoAdoption;
         private IOwnerRepository _repoOwner;
@@ -37,15 +38,15 @@ namespace com.educacionit.ms.pet.dataaccess
             disposed = true;
         }
 
-        //public UnitOfWork(PetsDbContext dbcontext)
-        //{
-        //    this._dbContext = dbcontext;
-        //}
-
-        public UnitOfWork()
+        public UnitOfWork(DbContext dbcontext)
         {
-            this._dbContext = new PetsDbContext();
-        }       
+            this._dbContext = dbcontext;
+        }
+
+        //public UnitOfWork()
+        //{
+        //    this._dbContext = new PetsDbContext();
+        //}       
 
         public IAdopterRepository RepoAdopter
         {

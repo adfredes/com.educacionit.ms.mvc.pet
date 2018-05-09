@@ -56,9 +56,9 @@
       <Project>{9867e58d-e5a9-4bac-a545-1f6fbf128929}</Project>
       <Name>com.educacionit.ms.pet.dataaccess</Name>
     </ProjectReference>
-    <ProjectReference Include="..\com.educacionit.ms.pet.domain.model\com.educacionit.ms.pet.domain.model.csproj">
+    <ProjectReference Include="..\com.educacionit.ms.pet.domain.model\com.educacionit.ms.pet.domain.entities.csproj">
       <Project>{a3b8e1e0-04ae-46de-ae58-c57b53d9d635}</Project>
-      <Name>com.educacionit.ms.pet.domain.model</Name>
+      <Name>com.educacionit.ms.pet.domain.entities</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

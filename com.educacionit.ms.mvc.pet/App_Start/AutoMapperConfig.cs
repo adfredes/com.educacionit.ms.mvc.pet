@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using com.educacionit.ms.pet.domain.model;
+using com.educacionit.ms.pet.domain.entities;
 using COM.Educacionit.MS.MVC.Pet.Models;
 using System;
 using System.Collections.Generic;

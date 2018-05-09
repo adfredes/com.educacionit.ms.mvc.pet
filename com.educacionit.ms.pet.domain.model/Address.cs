@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace com.educacionit.ms.pet.domain.model
+namespace com.educacionit.ms.pet.domain.entities
     
 {
     public class Address
@@ -19,7 +19,7 @@ namespace com.educacionit.ms.pet.domain.model
         public int Number { get; set; }
 
         public int idCity { get; set; }
-        public City City { get; set; }
+        public virtual City City { get; set; }
 
         public virtual Person Person { get; set; }
     }

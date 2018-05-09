@@ -1,4 +1,4 @@
-﻿using com.educacionit.ms.pet.domain.model;
+﻿using com.educacionit.ms.pet.domain.entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ namespace com.educacionit.ms.pet.dataaccess.Interfaces
 {
     public interface IPetRepository : IRepository<Pet>
     {
-        ICollection<Pet> GetPetsForAdoption();
-        ICollection<Pet> GetPetsForAdoption(int idType);
+        IQueryable<Pet> GetPetsForAdoption();
+        IQueryable<Pet> GetPetsForAdoption(int idType);
     }
 }

@@ -13,7 +13,13 @@ using COM.Educacionit.MS.MVC.Pet.Models;
 namespace com.educacionit.ms.mvc.pet.Controllers
 {
     public class HomeController : Controller
-    {        
+    {
+        private readonly IPetService petService;
+
+        public HomeController(IPetService petService)
+        {
+            this.petService = petService;
+        }
 
         public ActionResult Index(int? id = null)
         {
@@ -42,8 +48,7 @@ namespace com.educacionit.ms.mvc.pet.Controllers
 
         [HttpGet]
         public ActionResult Adopt()
-        {
-            IPetService petService = new PetServiceImp();
+        {            
             ViewBag.PetTypes = Mapper.Map<ICollection<PetTypeModel>>(petService.GetPetTypes());
             return View();
         }
@@ -51,8 +56,7 @@ namespace com.educacionit.ms.mvc.pet.Controllers
         [HttpGet]
         public ActionResult PetsInAdoption(int?  id = null)
         {
-            List<PetModel> pets;
-            IPetService petService = new PetServiceImp();
+            List<PetModel> pets;            
 
             if (id.HasValue) {
                 pets = Mapper.Map<List<PetModel>>(petService.GetPetsForAdoption(id.Value));                                                   
@@ -68,24 +72,13 @@ namespace com.educacionit.ms.mvc.pet.Controllers
         [HttpGet]
         public ActionResult AdoptPet (int id)
         {
-            AdoptionModel adoption = new AdoptionModel();
-            IPetService petService = new PetServiceImp();
+            AdoptionModel adoption = new AdoptionModel();            
             var pet = Mapper.Map<PetModel>(petService.Find(id));                
             adoption.Pet = pet;
             adoption.Date = DateTime.Now;
             return PartialView(adoption);
         }
 
-
-        private List<PetModel> getPets()
-        {
-            return new List<PetModel>{new PetModel() {Id = 1, Name = "Max", Age = 4, Specie = "Pug", Type = new PetTypeModel{ Name = "Perro" , Id = 1} },
-                new PetModel() {Id = 2, Name = "Olivia", Age = 10, Specie = "Siames", Type = new PetTypeModel{ Name = "Gato", Id = 2 } }};
-        }
-
-        private List<PetTypeModel> getPetTypes()
-        {
-            return new List<PetTypeModel> { new PetTypeModel { Name = "Perro", Id = 1 }, new PetTypeModel { Name = "Gato", Id = 2 } };                
-        }
+        
     }
 }

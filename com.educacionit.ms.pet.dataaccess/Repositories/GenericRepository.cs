@@ -12,11 +12,11 @@ namespace com.educacionit.ms.pet.dataaccess.Repositories
 {
     public abstract class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        private readonly PetsDbContext _dbcontext;
+        private readonly DbContext _dbcontext;
 
         private DbSet<TEntity> Entity { get; set; }
 
-        public GenericRepository(PetsDbContext dbContext)
+        public GenericRepository(DbContext dbContext)
         {
             this._dbcontext = dbContext;
             this.Entity = this._dbcontext.Set<TEntity>();

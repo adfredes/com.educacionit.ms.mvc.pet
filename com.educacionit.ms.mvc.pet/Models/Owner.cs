@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
-
+using System.Xml.Serialization;
 
 namespace COM.Educacionit.MS.MVC.Pet.Models
 {
     public class OwnerModel : PersonModel
     {
-        public List<PetModel> Pets { get; set; }
+        //[XmlIgnore]
+        //public List<PetModel> Pets { get; set; }
     }
 }
